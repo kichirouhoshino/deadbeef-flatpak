@@ -5,7 +5,7 @@
     "runtime-version": "47",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
-        "org.freedesktop.Sdk.Extension.llvm14"
+        "org.freedesktop.Sdk.Extension.llvm19"
     ],
     "command": "deadbeef",
     "finish-args": [
