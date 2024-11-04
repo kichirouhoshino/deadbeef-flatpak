@@ -29,8 +29,8 @@
     "rename-desktop-file": "deadbeef.desktop",
     "cleanup": [ "/include", "*.la" ],
     "build-options": {
-        "append-path": "/usr/lib/sdk/llvm14/bin",
-        "prepend-ld-library-path": "/usr/lib/sdk/llvm14/lib"
+        "append-path": "/usr/lib/sdk/llvm19/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/llvm19/lib"
     },
     "modules": [
         "shared-modules/intltool/intltool-0.51.json",
@@ -54,8 +54,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/xiph/opus.git",
-                    "tag": "v1.5.2"
+                    "url": "https://gitlab.xiph.org/xiph/opus.git",
+                    "tag": "v1.3.1"
                 }
             ]
         },
@@ -65,7 +65,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/xiph/opusfile.git",
+                    "url": "https://gitlab.xiph.org/xiph/opusfile.git",
                     "tag": "v0.12"
                 }
             ]
@@ -76,7 +76,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/xiph/libopusenc.git",
+                    "url": "https://gitlab.xiph.org/xiph/libopusenc.git",
                     "tag": "v0.2.1"
                 }
             ]
@@ -87,7 +87,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/xiph/opus-tools.git",
+                    "url": "https://gitlab.xiph.org/xiph/opus-tools.git",
                     "tag": "v0.2"
                 }
             ]
