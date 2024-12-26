@@ -174,7 +174,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/DeaDBeeF-Player/deadbeef.git",
-                    "branch": "master"
+                    "branch": "master",
+                    "commit": "813d08344d5e6b487b68da3a8d42d284642b0a91"
                 },
                 {
                     "type": "file",
