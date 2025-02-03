@@ -1,0 +1,16 @@
+app-id: music.deadbeef.player.plugin.bs2b
+runtime: music.deadbeef.player
+sdk: org.gnome.Sdk
+build-extension: true
+
+modules:
+  - name: bs2b
+    builddir: true
+    buildsystem: simple
+    build-commands:
+      - make
+      - make install PREFIX=/app
+    sources:
+      - type: git
+        url: https://github.com/DeaDBeeF-Player/bs2b.git
+        branch: master

@@ -1,5 +1,4 @@
 app-id: music.deadbeef.player
-branch: master
 runtime: org.gnome.Platform
 runtime-version: '46'
 sdk: org.gnome.Sdk
