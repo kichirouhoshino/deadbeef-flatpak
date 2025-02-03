@@ -1,0 +1,27 @@
+diff --git a/src/plugins.c b/src/plugins.c
+index 6b620085..0f24102e 100644
+--- a/src/plugins.c
++++ b/src/plugins.c
+@@ -996,6 +996,13 @@
+         int i;
+         for (i = 0; i < n; i++)
+         {
++            // Recursively load plugins from subdirectories
++            if (namelist[i]->d_type == DT_DIR && strcmp(namelist[i]->d_name, ".")!= 0 && strcmp(namelist[i]->d_name, "..")!= 0) {
++                char subdir[PATH_MAX];
++                snprintf(subdir, sizeof(subdir), "%s/%s", plugdir, namelist[i]->d_name);
++                load_plugin_dir(subdir, gui_scan); // Recursive call
++                continue;
++            }
+             // skip hidden files and fallback plugins
+             while (namelist[i]->d_name[0] != '.'
+ #if !defined(ANDROID) && !defined(OSX_APPBUNDLE)
+@@ -1632,7 +1639,7 @@
+ #ifdef OSX_APPBUNDLE
+     conf_get_str ("output_plugin", "coreaudio", outplugname, sizeof (outplugname));
+ #else
+-    conf_get_str ("output_plugin", "alsa", outplugname, sizeof (outplugname));
++    conf_get_str ("output_plugin", "pulseaudio2", outplugname, sizeof (outplugname));
+ #endif
+     for (int i = 0; g_output_plugins[i]; i++) {
+         DB_output_t *p = g_output_plugins[i];

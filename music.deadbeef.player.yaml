@@ -26,9 +26,18 @@ rename-desktop-file: deadbeef.desktop
 cleanup:
   - /include
   - '*.la'
+cleanup-commands:
+  - mkdir -p /app/lib/deadbeef/flatpak
 build-options:
   append-path: /usr/lib/sdk/llvm18/bin
   prepend-ld-library-path: /usr/lib/sdk/llvm18/lib
+
+add-extensions:
+  music.deadbeef.player.plugin:
+    directory: lib/deadbeef/flatpak
+    subdirectories: true
+    no-autodownload: true
+    autodelete: true
 
 modules:
   - shared-modules/intltool/intltool-0.51.json
@@ -138,7 +147,7 @@ modules:
       - type: file
         path: music.deadbeef.player.desktop
       - type: patch
-        path: default-output-plugin.patch
+        path: pluginpatch.patch
 
   - name: pulse2
     buildsystem: meson

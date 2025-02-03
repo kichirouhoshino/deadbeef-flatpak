@@ -1,3 +1,17 @@
+# Personal DeaDBeeF Flatpak package
+
+My fork of saivert's DeaDBeeF Flatpak packaging
+
+Combined changes:
+- Builds with GTKNativeFileChooser
+- Makes use of saivert's pulseaudio output plugin
+- Removes default pulseaudio plugin and alsa plugin
+- Can now recursively scan plugin directories
+
+Flatpak extensions load their files to `/app/lib/deadbeef/flatpak`, with each extension having its own folder. Due to Flatpak limitations, you cannot add plugins directly to the `/app/lib/deadbeef` folder, which is why I patched DeaDBeeF to allow recursive plugin scanning. You can find the current available plugins in the `plugins` folder in this repo. All plugins are built from source whenever possible.
+
+Below is the original contents of the README.
+
 # deadbeef-flatpak
 
 DeaDBeeF stable build 1.8.1 support building with GTKNativeFileChooser which is utilized to support flatpak portals. Other than that the xdg-music (~/Music) folder is made available by default so it is not fully sandboxed.

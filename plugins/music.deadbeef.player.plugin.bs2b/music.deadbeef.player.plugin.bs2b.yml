@@ -1,6 +1,6 @@
 app-id: music.deadbeef.player.plugin.bs2b
 runtime: music.deadbeef.player
-sdk: org.gnome.Sdk
+sdk: org.gnome.Sdk//46
 build-extension: true
 
 modules:
@@ -8,9 +8,15 @@ modules:
     builddir: true
     buildsystem: simple
     build-commands:
-      - make
-      - make install PREFIX=/app
+      - mkdir -p deadbeef/
+      - tar -xf ddb-headers-latest.tar.bz2 -C deadbeef/
+      - make CFLAGS="$CFLAGS -std=c99 -fPIC -Wall -I./libbs2b-3.1.0/src -I./deadbeef"
+      - ls /app/lib/deadbeef
+      - install -Dm755 ddb_bs2b.so /app/lib/deadbeef/flatpak/bs2b
     sources:
       - type: git
         url: https://github.com/DeaDBeeF-Player/bs2b.git
         branch: master
+      - type: file
+        url: https://master.dl.sourceforge.net/project/deadbeef/staticdeps/ddb-headers-latest.tar.bz2
+        sha256: e86ee7fb8c8347168c769eeb82b6a0ea9aca55d2688a4f79726a63fc7dd04289
