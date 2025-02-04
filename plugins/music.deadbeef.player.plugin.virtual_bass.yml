@@ -1,21 +1,21 @@
-app-id: music.deadbeef.player.plugin.waveform_seekbar
+app-id: music.deadbeef.player.plugin.virtual_bass
 runtime: music.deadbeef.player
 sdk: org.gnome.Sdk//46
 build-extension: true
 
 modules:
-  - name: waveform_seekbar
+  - name: virtual_bass
     builddir: true
     buildsystem: simple
     build-commands:
       - mkdir -p deadbeef/
       - tar -xf ddb-headers-latest.tar.bz2 -C deadbeef/
-      - make CFLAGS="$CFLAGS -Wall -O2 -g -fPIC -std=c99 -D_GNU_SOURCE -I./deadbeef" gtk3
-      - install -Dm755 gtk3/ddb_misc_waveform_GTK3.so /app/extensions/waveform_seekbar/ddb_misc_waveform_GTK3.so
+      - make CFLAGS="$CFLAGS -std=c99 -fPIC -Wall -Werror -g -I./deadbeef"
+      - install -Dm755 virtual_bass.so /app/extensions/virtual_bass/virtual_bass.so
 
     sources:
       - type: git
-        url: https://github.com/cboxdoerfer/ddb_waveform_seekbar.git
+        url: https://github.com/alpo/DeaDBeeF-virtual-bass-plugin.git
         branch: master
       - type: file
         url: https://master.dl.sourceforge.net/project/deadbeef/staticdeps/ddb-headers-latest.tar.bz2

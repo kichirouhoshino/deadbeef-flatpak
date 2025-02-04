@@ -8,8 +8,15 @@ modules:
     builddir: true
     buildsystem: simple
     build-commands:
-      - install -Dm755 ddb_misc_playback_status_GTK3.so /app/extensions/playback_status/ddb_misc_playback_status_GTK3.so
+      - mkdir -p deadbeef/
+      - tar -xf ddb-headers-latest.tar.bz2 -C deadbeef/
+      - make CFLAGS="$CFLAGS -Wall -g -fPIC -std=c99 -D_GNU_SOURCE -I./deadbeef" gtk3
+      - install -Dm755 gtk3/ddb_misc_playback_status_GTK3.so /app/extensions/playback_status/ddb_misc_playback_status_GTK3.so
+
     sources:
-      - type: archive
-        url: https://master.dl.sourceforge.net/project/deadbeef/plugins/x86_64/ddb_playback_status-fce1de0-linux-x86_64.zip
-        sha256: 27ecedefd3304f929c17136a329fcb9483a9d8a85b5aeba80ad6738161c3be79
+      - type: git
+        url: https://github.com/cboxdoerfer/ddb_playback_status.git
+        branch: master
+      - type: file
+        url: https://master.dl.sourceforge.net/project/deadbeef/staticdeps/ddb-headers-latest.tar.bz2
+        sha256: e86ee7fb8c8347168c769eeb82b6a0ea9aca55d2688a4f79726a63fc7dd04289

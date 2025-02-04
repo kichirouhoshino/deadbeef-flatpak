@@ -8,8 +8,15 @@ modules:
     builddir: true
     buildsystem: simple
     build-commands:
+      - mkdir -p deadbeef/
+      - tar -xf ddb-headers-latest.tar.bz2 -C deadbeef/
+      - make CFLAGS="$CFLAGS $(COPT) -fPIC -I discord-rpc/include -I . -Wall -I/run/build/discord_presence/deadbeef"
       - install -Dm755 discord_presence.so /app/extensions/discord_presence/discord_presence.so
     sources:
-      - type: archive
-        url: https://master.dl.sourceforge.net/project/deadbeef/plugins/x86_64/ddb_discord_presence-1.8-linux-x86_64.zip
-        sha256: a7d5d3a89f30b7c388019db1f74933b7b7133d9a9626153013393294f489b01e
+      - type: git
+        url: https://github.com/kuba160/ddb_discord_presence.git
+        tag: v1.7
+      - type: file
+        url: https://master.dl.sourceforge.net/project/deadbeef/staticdeps/ddb-headers-latest.tar.bz2
+        sha256: e86ee7fb8c8347168c769eeb82b6a0ea9aca55d2688a4f79726a63fc7dd04289
+

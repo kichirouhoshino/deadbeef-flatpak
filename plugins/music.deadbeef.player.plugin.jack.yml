@@ -1,0 +1,15 @@
+app-id: music.deadbeef.player.plugin.jack
+runtime: music.deadbeef.player
+sdk: org.gnome.Sdk//46
+build-extension: true
+
+modules:
+  - name: jack
+    builddir: true
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 jack.so /app/extensions/jack/jack.so
+    sources:
+      - type: archive
+        url: https://cyfuture.dl.sourceforge.net/project/deadbeef/plugins/x86_64/jack-62d1e6a-linux-x86_64.zip
+        sha256: e1abb5090d23144ce4510e3737fc4c5945d775c503eb58bd3e5a10ce9b8d516c

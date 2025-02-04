@@ -39,6 +39,7 @@ build-options:
 add-extensions:
   music.deadbeef.player.plugin:
     directory: extensions
+    add-ld-path: lib
     subdirectories: true
     no-autodownload: true
     autodelete: true
@@ -46,6 +47,8 @@ add-extensions:
 modules:
   - shared-modules/intltool/intltool-0.51.json
   - name: intltool
+
+  - gtkmm.json
 
   - name: libjansson
     buildsystem: cmake
@@ -163,3 +166,13 @@ modules:
         branch: master
       - type: patch
         path: pulse-icon.patch
+
+  - name: taglib
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/taglib/taglib.git
+        tag: v2.0.2
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_SHARED_LIBS=ON

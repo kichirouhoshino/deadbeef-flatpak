@@ -1,0 +1,17 @@
+app-id: music.deadbeef.player.plugin.dr_meter
+runtime: music.deadbeef.player
+sdk: org.gnome.Sdk//46
+build-extension: true
+
+modules:
+  - name: dr_meter
+    builddir: true
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 ddb_dr_meter_gtk3.so /app/extensions/dr_meter/ddb_dr_meter_gtk3.so
+      - install -Dm755 ddb_dr_meter.so /app/extensions/dr_meter/ddb_dr_meter.so
+      - install -Dm755 libdrmeter.so /app/extensions/dr_meter/lib/libdrmeter.so
+    sources:
+      - type: archive
+        url: https://phoenixnap.dl.sourceforge.net/project/deadbeef/plugins/x86_64/deadbeef-dr-meter-7467d0e-linux-x86_64.zip
+        sha256: 359b5b1cef2f72c2392844fa7434bccbbc69b4da3f18b22500619556e3118084

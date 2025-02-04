@@ -1,0 +1,15 @@
+app-id: music.deadbeef.player.plugin.stereo_widener
+runtime: music.deadbeef.player
+sdk: org.gnome.Sdk//46
+build-extension: true
+
+modules:
+  - name: stereo_widener
+    builddir: true
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 stereo_widener.so /app/extensions/stereo_widener/stereo_widener.so
+    sources:
+      - type: archive
+        url: https://master.dl.sourceforge.net/project/deadbeef/plugins/x86_64/stereo_widener-d3990d7-linux-x86_64.zip?viasf=1
+        sha256: f52b2278d09539cf7efe6331089ff979f82858d751a5b3f9c06c8a63080cb0f3
