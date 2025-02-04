@@ -6,9 +6,9 @@ Combined changes:
 - Builds with GTKNativeFileChooser
 - Makes use of saivert's pulseaudio output plugin
 - Removes default pulseaudio plugin and alsa plugin
-- Can now recursively scan plugin directories
+- Can recursively scan for plugins in the `/app/extensions` directory
 
-Flatpak extensions load their files to `/app/lib/deadbeef/flatpak`, with each extension having its own folder. Due to Flatpak limitations, you cannot add plugins directly to the `/app/lib/deadbeef` folder, which is why I patched DeaDBeeF to allow recursive plugin scanning. You can find the current available plugins in the `plugins` folder in this repo. All plugins are built from source whenever possible.
+Flatpak extensions load their files to `/app/extensions`, with each extension having its own folder. You can find the currently available plugins in the `plugins` folder in this repo. You can make your own extension, or put your plugins at `~/.local/lib/deadbeef` or `~/.local/lib64/deadbeef` as always.
 
 Below is the original contents of the README.
 

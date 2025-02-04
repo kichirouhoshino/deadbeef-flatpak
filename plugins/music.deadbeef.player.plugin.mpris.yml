@@ -1,0 +1,15 @@
+app-id: music.deadbeef.player.plugin.mpris
+runtime: music.deadbeef.player
+sdk: org.gnome.Sdk//46
+build-extension: true
+
+modules:
+  - name: mpris
+    builddir: true
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 mpris.so /app/extensions/mpris/mpris.so
+    sources:
+      - type: archive
+        url: https://phoenixnap.dl.sourceforge.net/project/deadbeef/plugins/x86_64/mpris-fdfd001-linux-x86_64.zip
+        sha256: b429c67da053c6862fe9dda5697a69ce8b867d3825d10721af1df186f0131970

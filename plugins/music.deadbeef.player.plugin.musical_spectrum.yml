@@ -1,0 +1,15 @@
+app-id: music.deadbeef.player.plugin.musical_spectrum
+runtime: music.deadbeef.player
+sdk: org.gnome.Sdk//46
+build-extension: true
+
+modules:
+  - name: musical_spectrum
+    builddir: true
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 ddb_vis_musical_spectrum_GTK3.so /app/extensions/musical_spectrum/ddb_vis_musical_spectrum_GTK3.so
+    sources:
+      - type: archive
+        url: https://cyfuture.dl.sourceforge.net/project/deadbeef/plugins/x86_64/ddb_musical_spectrum-f177bdd-linux-x86_64.zip
+        sha256: 26d500f303e84897160d7212852971ad065df797162f611ce3908379c00ca3ef

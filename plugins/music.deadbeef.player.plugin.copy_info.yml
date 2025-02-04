@@ -1,0 +1,15 @@
+app-id: music.deadbeef.player.plugin.copy_info
+runtime: music.deadbeef.player
+sdk: org.gnome.Sdk//46
+build-extension: true
+
+modules:
+  - name: copy_info
+    builddir: true
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 ddb_copy_info_gtk3.so /app/extensions/copy_info/ddb_copy_info_gtk3.so
+    sources:
+      - type: archive
+        url: https://master.dl.sourceforge.net/project/deadbeef/plugins/x86_64/ddb_copy_info-v1.1.0-linux-x86_64.zip
+        sha256: dac7055748e5e48404be96bf0a4ee6fc03104697be10ae085ee60d531c72f9e0

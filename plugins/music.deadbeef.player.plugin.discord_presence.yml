@@ -1,0 +1,15 @@
+app-id: music.deadbeef.player.plugin.discord_presence
+runtime: music.deadbeef.player
+sdk: org.gnome.Sdk//46
+build-extension: true
+
+modules:
+  - name: discord_presence
+    builddir: true
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 discord_presence.so /app/extensions/discord_presence/discord_presence.so
+    sources:
+      - type: archive
+        url: https://master.dl.sourceforge.net/project/deadbeef/plugins/x86_64/ddb_discord_presence-1.8-linux-x86_64.zip
+        sha256: a7d5d3a89f30b7c388019db1f74933b7b7133d9a9626153013393294f489b01e

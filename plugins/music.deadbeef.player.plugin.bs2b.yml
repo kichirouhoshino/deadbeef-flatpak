@@ -11,7 +11,7 @@ modules:
       - mkdir -p deadbeef/
       - tar -xf ddb-headers-latest.tar.bz2 -C deadbeef/
       - make CFLAGS="$CFLAGS -std=c99 -fPIC -Wall -I./libbs2b-3.1.0/src -I./deadbeef"
-      - install -Dm755 ddb_bs2b.so /app/lib/deadbeef/flatpak/bs2b
+      - install -Dm755 ddb_bs2b.so /app/extensions/bs2b/ddb_bs2b.so
     sources:
       - type: git
         url: https://github.com/DeaDBeeF-Player/bs2b.git

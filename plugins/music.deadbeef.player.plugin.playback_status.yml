@@ -1,0 +1,15 @@
+app-id: music.deadbeef.player.plugin.playback_status
+runtime: music.deadbeef.player
+sdk: org.gnome.Sdk//46
+build-extension: true
+
+modules:
+  - name: playback_status
+    builddir: true
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 ddb_misc_playback_status_GTK3.so /app/extensions/playback_status/ddb_misc_playback_status_GTK3.so
+    sources:
+      - type: archive
+        url: https://master.dl.sourceforge.net/project/deadbeef/plugins/x86_64/ddb_playback_status-fce1de0-linux-x86_64.zip
+        sha256: 27ecedefd3304f929c17136a329fcb9483a9d8a85b5aeba80ad6738161c3be79
