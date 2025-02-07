@@ -1,0 +1,16 @@
+app-id: music.deadbeef.player.plugin.filebrowser-reborn
+runtime: music.deadbeef.player
+sdk: org.gnome.Sdk//46
+build-extension: true
+
+modules:
+  - name: filebrowser-reborn
+    builddir: true
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 ddb_misc_filebrowser_reborn.so /app/extensions/filebrowser-reborn/ddb_misc_filebrowser_reborn.so
+    sources:
+      - type: file
+        url: https://github.com/duzda/deadbeef-filebrowser-reborn/releases/download/v0.6.0/ddb_misc_filebrowser_reborn.so
+        sha256: ded1db989502ffb4b5e4563064fb3c2154cef5a94ea9b4ef1426a9131cc9d4cd
+

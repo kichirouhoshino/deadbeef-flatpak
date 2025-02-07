@@ -2,21 +2,13 @@ app-id: music.deadbeef.player.plugin.waveform_seekbar
 runtime: music.deadbeef.player
 sdk: org.gnome.Sdk//46
 build-extension: true
-
 modules:
   - name: waveform_seekbar
     builddir: true
     buildsystem: simple
     build-commands:
-      - mkdir -p deadbeef/
-      - tar -xf ddb-headers-latest.tar.bz2 -C deadbeef/
-      - make CFLAGS="$CFLAGS -Wall -O2 -g -fPIC -std=c99 -D_GNU_SOURCE -I./deadbeef" gtk3
-      - install -Dm755 gtk3/ddb_misc_waveform_GTK3.so /app/extensions/waveform_seekbar/ddb_misc_waveform_GTK3.so
-
+      - install -Dm755 ddb_misc_waveform_GTK3.so /app/extensions/waveform_seekbar/ddb_misc_waveform_GTK3.so
     sources:
-      - type: git
-        url: https://github.com/cboxdoerfer/ddb_waveform_seekbar.git
-        branch: master
-      - type: file
-        url: https://master.dl.sourceforge.net/project/deadbeef/staticdeps/ddb-headers-latest.tar.bz2
-        sha256: e86ee7fb8c8347168c769eeb82b6a0ea9aca55d2688a4f79726a63fc7dd04289
+      - type: archive
+        url: https://cyfuture.dl.sourceforge.net/project/deadbeef/plugins/x86_64/ddb_waveform_seekbar-4afd845-linux-x86_64.zip
+        sha256: 34aa4d6a9422c59f40958ac9006349776a4c8174afb7a5a5ad64ec5eb80548f6
