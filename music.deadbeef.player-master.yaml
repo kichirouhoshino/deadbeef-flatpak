@@ -17,39 +17,23 @@ finish-args:
   - --filesystem=~/.local/lib64/deadbeef
   - --talk-name=ca.desrt.dconf
   - --talk-name=org.freedesktop.Notifications
-  - --talk-name=org.kde.StatusNotifierWatcher
   - --filesystem=xdg-run/dconf
   - --filesystem=xdg-run/deadbeef:create
   - --filesystem=~/.config/dconf:ro
   - --filesystem=xdg-run/pipewire-0:ro
-  - --filesystem=xdg-run/.flatpak/dev.vencord.Vesktop:create
-  - --filesystem=xdg-run/discord-ipc-*
-  - --filesystem=xdg-run/app/com.discordapp.Discord:create
   - --env=DCONF_USER_CONFIG_DIR=.config/dconf
 rename-icon: deadbeef
 rename-desktop-file: deadbeef.desktop
 cleanup:
   - /include
   - '*.la'
-cleanup-commands:
-  - mkdir -p /app/extensions
 build-options:
   append-path: /usr/lib/sdk/llvm19/bin
   prepend-ld-library-path: /usr/lib/sdk/llvm19/lib
 
-add-extensions:
-  music.deadbeef.player.plugin:
-    directory: extensions
-    add-ld-path: lib
-    subdirectories: true
-    no-autodownload: true
-    autodelete: true
-
 modules:
   - shared-modules/intltool/intltool-0.51.json
   - name: intltool
-
-  - gtkmm.json
 
   - name: libjansson
     buildsystem: cmake
@@ -118,7 +102,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/apple/swift-corelibs-libdispatch.git
-        tag: swift-6.0.3-RELEASE
+        tag: swift-5.10.1-RELEASE
       - type: patch
         path: libdispatch-patches/avoid-libkqueue.patch
         strip-components: 0
@@ -126,8 +110,8 @@ modules:
         path: libdispatch-patches/remove-werror.patch
         strip-components: 0
       - type: patch
-        path: libdispatch-patches/system-blocksruntime.patch
-        strip-components: 0
+       path: libdispatch-patches/system-blocksruntime.patch
+       strip-components: 0
 
   - name: deadbeef
     buildsystem: autotools
@@ -155,7 +139,7 @@ modules:
       - type: file
         path: music.deadbeef.player.desktop
       - type: patch
-        path: pluginpatch.patch
+        path: default-output-plugin.patch
 
   - name: pulse2
     buildsystem: meson
@@ -167,13 +151,3 @@ modules:
         branch: master
       - type: patch
         path: pulse-icon.patch
-
-  - name: taglib
-    buildsystem: cmake-ninja
-    sources:
-      - type: git
-        url: https://github.com/taglib/taglib.git
-        tag: v2.0.2
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_SHARED_LIBS=ON

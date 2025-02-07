@@ -166,3 +166,13 @@ modules:
         branch: master
       - type: patch
         path: pulse-icon.patch
+
+  - name: taglib
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/taglib/taglib.git
+        tag: v2.0.2
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_SHARED_LIBS=ON

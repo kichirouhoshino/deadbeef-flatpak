@@ -6,7 +6,7 @@ Combined changes:
 - Build with GTKNativeFileChooser
 - Replace built-in pulseaudio with saivert's improved pulseaudio output plugin
 - Remove default pulseaudio plugin and alsa plugin
-- Add gtkmm3 to allow some plugins to work
+- Add gtkmm3 and taglib to allow some plugins to work
 - Can recursively scan for plugins in the `/app/extensions` directory
 
 Flatpak extensions load their files to `/app/extensions`, with each extension having its own folder. You can find the currently available plugins in the `plugins` folder in this repo. You can make your own extension, or put your plugins at `~/.local/lib/deadbeef` or `~/.local/lib64/deadbeef` as always.
