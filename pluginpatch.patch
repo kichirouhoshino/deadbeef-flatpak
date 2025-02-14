@@ -2,25 +2,25 @@ diff --git a/src/plugins.c b/src/plugins.c
 index 6b620085..0f24102e 100644
 --- a/src/plugins.c
 +++ b/src/plugins.c
-@@ -996,6 +996,17 @@
+@@ -913,6 +913,17 @@
          int i;
          for (i = 0; i < n; i++)
          {
-+
-+            if (strstr(plugdir, "/app/extensions")!= NULL &&
++            // Only search within /app/extensions, exactly one subfolder deep
++            if (strcmp(plugdir, "/app/extensions") == 0 &&
 +                namelist[i]->d_type == DT_DIR &&
-+                strcmp(namelist[i]->d_name, ".")!= 0 &&
-+                strcmp(namelist[i]->d_name, "..")!= 0) {
++                strcmp(namelist[i]->d_name, ".") != 0 &&
++                strcmp(namelist[i]->d_name, "..") != 0) {
 +
 +                char subdir[PATH_MAX];
 +                snprintf(subdir, sizeof(subdir), "%s/%s", plugdir, namelist[i]->d_name);
-+                load_plugin_dir(subdir, gui_scan); // Recursive call
++                load_plugin_dir(subdir, gui_scan); // Load only immediate subdirectories
 +            }
 +
              // skip hidden files and fallback plugins
              while (namelist[i]->d_name[0] != '.'
  #if !defined(ANDROID) && !defined(OSX_APPBUNDLE)
-@@ -1150,7 +1161,7 @@
+@@ -1065,7 +1076,7 @@
      }
  
      // load from HOME 1st, than replace from installdir if needed
@@ -29,7 +29,7 @@ index 6b620085..0f24102e 100644
  
      // If xdg_plugin_dir and dirname is the same, we should avoid each plugin
      // to be load twice.
-@@ -1632,7 +1643,7 @@
+@@ -1548,7 +1559,7 @@
  #ifdef OSX_APPBUNDLE
      conf_get_str ("output_plugin", "coreaudio", outplugname, sizeof (outplugname));
  #else

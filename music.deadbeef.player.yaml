@@ -166,3 +166,64 @@ modules:
         branch: master
       - type: patch
         path: pulse-icon.patch
+
+  ## Allows mpcenc command to work, but it is currently incorrectly used in 1.9.6
+  ## Hopefully fixed in the upcoming 1.10
+  - name: libcue
+    buildsystem: cmake
+    builddir: true
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=None
+      - -DBUILD_SHARED_LIBS=ON
+      - -Wno-dev
+    sources:
+      - type: git
+        url: https://github.com/lipnitsk/libcue.git
+        tag: v2.3.0
+
+  - name: libreplaygain
+    buildsystem: cmake
+    builddir: true
+    config-opts:
+      - DCMAKE_BUILD_TYPE=Release
+    sources:
+      - type: archive
+        url: https://files.musepack.net/source/libreplaygain_r475.tar.gz
+        sha256: 8258bf785547ac2cda43bb195e07522f0a3682f55abe97753c974609ec232482
+
+  - name: musepack
+    buildsystem: simple
+    builddir: true
+    sources:
+      - type: archive
+        url: https://files.musepack.net/source/musepack_src_r475.tar.gz
+        sha256: a4b1742f997f83e1056142d556a8c20845ba764b70365ff9ccf2e3f81c427b2b
+      - type: patch
+        path: musepack-patches/01_am-maintainer-mode.patch
+        strip-components: 0
+      - type: patch
+        path: musepack-patches/02_link-libm.patch
+        strip-components: 0
+      - type: patch
+        path: musepack-patches/03_mpcchap.patch
+        strip-components: 0
+      - type: patch
+        path: musepack-patches/04_link-order.patch
+        strip-components: 0
+      - type: patch
+        path: musepack-patches/05_visibility.patch
+        strip-components: 0
+      - type: patch
+        path: musepack-patches/1001_missing_extern_kw.patch
+        strip-components: 0
+      - type: patch
+        path: musepack-patches/add_subdir-objects.patch
+        strip-components: 0
+      - type: patch
+       path: musepack-patches/musepack-tools-495-incompatible-pointers.patch
+        strip-components: 0
+    build-commands:
+      - autoreconf -fi
+      - ./configure --prefix=/app --sysconfdir=/etc --localstatedir=/var --enable-mpcchap
+      - make
+      - make install
