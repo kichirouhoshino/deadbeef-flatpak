@@ -15,12 +15,6 @@ flatpak remote-add --user roddy-flatpak https://kichirouhoshino.github.io/roddy-
 flatpak install roddy-flatpak music.deadbeef.player
 ```
 
-You can then run `flatpak search music.deadbeef.player` to look for flatpak extensions.
-
-Flatpak extensions load their files to `/app/extensions`, with each extension having its own folder. Plugins are built along with the main application and are exported as extensions.
-
-You can make your own extension, or put your plugins at `~/.local/lib/deadbeef` or `~/.local/lib64/deadbeef` as always.
-
 Below is the original contents of the README.
 
 # deadbeef-flatpak
