@@ -220,7 +220,7 @@ modules:
         path: musepack-patches/add_subdir-objects.patch
         strip-components: 0
       - type: patch
-       path: musepack-patches/musepack-tools-495-incompatible-pointers.patch
+        path: musepack-patches/musepack-tools-495-incompatible-pointers.patch
         strip-components: 0
     build-commands:
       - autoreconf -fi
