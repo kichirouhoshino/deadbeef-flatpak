@@ -7,7 +7,7 @@ Combined changes:
 - Replace built-in pulseaudio with saivert's improved pulseaudio output plugin
 - Remove default pulseaudio plugin and alsa plugin
 - Add gtkmm3 to allow some plugins to work
-- Add mpcenc (still broken currently)
+- Add mpcenc
 
 You can install it from my personal flatpak repo (remove the --user argument to install system-wide)
 ``` bash

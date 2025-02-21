@@ -154,8 +154,6 @@ modules:
       - type: patch
         path: pulse-icon.patch
 
-  ## Allows mpcenc command to work, but it is currently incorrectly used in 1.9.6
-  ## Hopefully fixed in the upcoming 1.10
   - name: libcue
     buildsystem: cmake
     builddir: true
