@@ -115,45 +115,6 @@ modules:
         path: libdispatch-patches/system-blocksruntime.patch
         strip-components: 0
 
-  - name: deadbeef
-    buildsystem: autotools
-    config-opts:
-      - --disable-alsa
-      - --disable-pulse
-      - --disable-oss
-      - CC=clang
-      - CXX=clang++
-    build-options:
-      cflags: -DUSE_GTK_NATIVE_FILE_CHOOSER
-      env:
-        CC: clang
-        CXX: clang++
-    build-commands:
-      - install -D music.deadbeef.player.appdata.xml /app/share/metainfo/music.deadbeef.player.appdata.xml
-    post-install:
-      - cp icons/32x32/deadbeef.png /app/
-    sources:
-      - type: git
-        url: https://github.com/DeaDBeeF-Player/deadbeef.git
-        tag: 1.9.6
-      - type: file
-        path: music.deadbeef.player.appdata.xml
-      - type: file
-        path: music.deadbeef.player.desktop
-      - type: patch
-        path: default-output-plugin.patch
-
-  - name: pulse2
-    buildsystem: meson
-    config-opts:
-      - --buildtype=release
-    sources:
-      - type: git
-        url: https://github.com/saivert/ddb_output_pulse2.git
-        branch: master
-      - type: patch
-        path: pulse-icon.patch
-
   - name: libcue
     buildsystem: cmake
     builddir: true
@@ -212,3 +173,26 @@ modules:
       - ./configure --prefix=/app --sysconfdir=/etc --localstatedir=/var --enable-mpcchap
       - make
       - make install
+
+  - name: deadbeef
+    buildsystem: autotools
+    config-opts:
+      - CC=clang
+      - CXX=clang++
+    build-options:
+      cflags: -DUSE_GTK_NATIVE_FILE_CHOOSER
+      env:
+        CC: clang
+        CXX: clang++
+    build-commands:
+      - install -D music.deadbeef.player.appdata.xml /app/share/metainfo/music.deadbeef.player.appdata.xml
+    post-install:
+      - cp icons/32x32/deadbeef.png /app/
+    sources:
+      - type: git
+        url: https://github.com/DeaDBeeF-Player/deadbeef.git
+        tag: 1.9.6
+      - type: file
+        path: music.deadbeef.player.appdata.xml
+      - type: file
+        path: music.deadbeef.player.desktop

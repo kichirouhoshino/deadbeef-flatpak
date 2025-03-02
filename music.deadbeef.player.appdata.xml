@@ -4,6 +4,9 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>DeaDBeeF</name>
+  <developer id="music.deadbeef.player">
+    <name>Oleksiy Yakovenko</name>
+  </developer>
   <content_rating type="oars-1.1" />
   <releases>
     <release version="1.9.6" date="2023-11-07">
