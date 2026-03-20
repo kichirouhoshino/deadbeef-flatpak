@@ -1,9 +1,5 @@
 name: CI-release-on-new-tag
 on:
-  push:
-    tags: 
-      - '*'
-  pull_request:
   workflow_dispatch:
 permissions:
   contents: write
@@ -23,9 +19,10 @@ jobs:
         bundle: deadbeef.flatpak
         manifest-path: music.deadbeef.player.json
         cache-key: flatpak-builder-${{ github.sha }}
-    - name: Release
-      uses: softprops/action-gh-release@v2
-      if: startsWith(github.ref, 'refs/tags/')
+    # Only produce artifacts, no release
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
       with:
-        files: deadbeef.flatpak
+        name: deadbeef.flatpak
+        path: deadbeef.flatpak
 
