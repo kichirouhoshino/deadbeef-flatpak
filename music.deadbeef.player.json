@@ -93,13 +93,12 @@
         },
         {
             "name": "libfaad2",
-            "buildsystem": "autotools",
+            "buildsystem": "cmake",
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://sourceforge.net/projects/faac/files/faad2-src/faad2-2.8.0/faad2-2.8.8.tar.gz/download",
-                    "dest-filename": "faad2-2.8.8.tar.gz",
-                    "sha256": "985c3fadb9789d2815e50f4ff714511c79c2710ac27a4aaaf5c0c2662141426d"
+                    "url": "https://github.com/knik0/faad2/archive/refs/tags/2.11.2.tar.gz",
+                    "sha256": "3fcbd305e4abd34768c62050e18ca0986f7d9c5eca343fb98275418013065c0e"
                 }
             ]
         },
