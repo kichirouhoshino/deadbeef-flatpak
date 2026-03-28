@@ -33,8 +33,76 @@
     },
     "modules": [
         "shared-modules/intltool/intltool-0.51.json",
+        "shared-modules/libmad/libmad.json",
         {
-            "name": "intltool"
+            "name": "libmpg123",
+            "buildsystem": "autotools",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://sourceforge.net/projects/mpg123/files/mpg123/1.33.4/mpg123-1.33.4.tar.bz2/download",
+                    "sha256": "3ae8c9ff80a97bfc0e22e89fbcd74687eca4fc1db315b12607f27f01cb5a47d9"
+                }
+            ]
+        },
+        {
+            "name": "wavpack",
+            "buildsystem": "autotools",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/dbry/WavPack/releases/download/5.9.0/wavpack-5.9.0.tar.gz",
+                    "sha256": "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+                }
+            ]
+        },
+        {
+            "name": "libzip",
+            "buildsystem": "cmake",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://libzip.org/download/libzip-1.11.4.tar.gz",
+                    "sha256": "82e9f2f2421f9d7c2466bbc3173cd09595a88ea37db0d559a9d0a2dc60dc722e"
+                }
+            ]
+        },
+        {
+            "name": "libcdio",
+            "buildsystem": "autotools",
+            "config-opts": [
+                "--without-cdda-player",
+                "--without-cddb"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://ftp.gnu.org/gnu/libcdio/libcdio-2.3.0.tar.gz",
+                    "sha256": "79b9752c84f4750868b1591565e914ecdea98521e96076929d94be0ac4e5f361"
+                }
+            ]
+        },
+        {
+            "name": "libcddb",
+            "buildsystem": "autotools",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://sourceforge.net/projects/libcddb/files/libcddb/1.3.2/libcddb-1.3.2.tar.bz2/download",
+                    "sha256": "35ce0ee1741ea38def304ddfe84a958901413aa829698357f0bee5bb8f0a223b"
+                }
+            ]
+        },
+        {
+            "name": "imlib2",
+            "buildsystem": "autotools",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://sourceforge.net/projects/enlightenment/files/imlib2-src/1.12.6/imlib2-1.12.6.tar.bz2/download",
+                    "sha256": "7347a1952a7ce0e891d77e3213292d6516bbb777ff7eddeceb2e71299e46ddf0"
+                }
+            ]
         },
         {
             "name": "libjansson",
