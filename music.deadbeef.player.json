@@ -51,8 +51,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/dbry/WavPack/releases/download/5.9.0/wavpack-5.9.0.tar.gz",
-                    "sha256": "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+                    "url": "https://github.com/dbry/WavPack/releases/download/5.9.0/wavpack-5.9.0.tar.xz",
+                    "sha256": "b5291bc4e6d69ebbd3da3800c5bf4a70f19bb92679b23e09b3b612c1e648d1ff"
                 }
             ]
         },
