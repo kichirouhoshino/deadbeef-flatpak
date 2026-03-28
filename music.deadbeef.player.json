@@ -23,7 +23,10 @@
     ],
     "rename-icon": "deadbeef",
     "rename-desktop-file": "deadbeef.desktop",
-    "cleanup": [ "/include", "*.la" ],
+    "cleanup": [
+        "/include",
+        "*.la"
+    ],
     "build-options": {
         "append-path": "/usr/lib/sdk/llvm22/bin",
         "prepend-ld-library-path": "/usr/lib/sdk/llvm22/lib"
@@ -31,7 +34,7 @@
     "modules": [
         "shared-modules/intltool/intltool-0.51.json",
         {
-          "name": "intltool"
+            "name": "intltool"
         },
         {
             "name": "libjansson",
@@ -122,15 +125,15 @@
                 }
             },
             "config-opts": [
-            	"-DCMAKE_BUILD_TYPE=RelWithDebInfo",
-            	"-DBlocksRuntime_INCLUDE_DIR=/app/include",
-            	"-DBlocksRuntime_LIBRARIES=/app/lib/libBlocksRuntime.so"
+                "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+                "-DBlocksRuntime_INCLUDE_DIR=/app/include",
+                "-DBlocksRuntime_LIBRARIES=/app/lib/libBlocksRuntime.so"
             ],
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/apple/swift-corelibs-libdispatch.git",
-                    "tag": "swift-5.7.1-RELEASE"
+                    "url": "https://github.com/swiftlang/swift-corelibs-libdispatch.git",
+                    "tag": "swift-6.1.1-RELEASE"
                 },
                 {
                     "type": "patch",
@@ -152,8 +155,14 @@
         {
             "name": "deadbeef",
             "buildsystem": "autotools",
-            "config-opts": ["--disable-alsa", "--disable-pulse", "--disable-oss", "CC=clang", "CXX=clang++"],
-            "build-options" : {
+            "config-opts": [
+                "--disable-alsa",
+                "--disable-pulse",
+                "--disable-oss",
+                "CC=clang",
+                "CXX=clang++"
+            ],
+            "build-options": {
                 "cflags": "-DUSE_GTK_NATIVE_FILE_CHOOSER",
                 "env": {
                     "CC": "clang",
@@ -185,7 +194,9 @@
         {
             "name": "pulse2",
             "buildsystem": "meson",
-            "config-opts": ["--buildtype=release"],
+            "config-opts": [
+                "--buildtype=release"
+            ],
             "sources": [
                 {
                     "type": "git",

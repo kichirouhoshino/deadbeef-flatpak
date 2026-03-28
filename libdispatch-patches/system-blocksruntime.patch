@@ -1,22 +1,20 @@
---- src/CMakeLists.txt.old	2022-11-20 13:23:09.059182034 -0500
+--- src/CMakeLists.txt	2022-11-20 13:23:09.059182034 -0500
 +++ src/CMakeLists.txt	2022-11-20 13:23:34.104194452 -0500
-@@ -1,8 +1,3 @@
--
+@@ -1,5 +1,3 @@
+ 
 -if(NOT CMAKE_SYSTEM_NAME STREQUAL Darwin)
 -  add_subdirectory(BlocksRuntime)
 -endif()
 -
  add_library(dispatch
-   allocator.c
-   apply.c
---- CMakeLists.txt.old	2022-11-20 13:29:12.750232997 -0500
+--- CMakeLists.txt	2022-11-20 13:29:12.750232997 -0500
 +++ CMakeLists.txt	2022-11-20 13:29:41.913235025 -0500
-@@ -147,6 +147,8 @@
+@@ -192,6 +192,8 @@
+ if(NOT CMAKE_SYSTEM_NAME STREQUAL Android)
    find_package(LibRT)
  endif()
- 
-+find_package(BlocksRuntime)
 +
++find_package(BlocksRuntime)
+ 
  check_function_exists(_pthread_workqueue_init HAVE__PTHREAD_WORKQUEUE_INIT)
  check_function_exists(getprogname HAVE_GETPROGNAME)
- check_function_exists(mach_absolute_time HAVE_MACH_ABSOLUTE_TIME)
